@@ -1,0 +1,33 @@
+<body>
+    <h1>All City Details</h1>
+    <form >
+        <% cities.forEach((cty)=> {%>
+    
+    
+    <label>City code:</label>
+    <input type="text" name="id" value= "<%= cty.cty_code %>"><br>
+    <label>City Name</label>
+    <input type="text" name="name" value= "<%= cty.cty_name %>"><br>
+    <label>City Population</label>
+    <input type="text" name="course" value= "<%= cty.population %>"><br>
+
+    <label>By the Sea</label>
+    <input type="text" name="id" value= "<%= cty.isCoastal %>"><br>
+    <label>Area (KM)</label>
+    <input type="text" name="name" value= "<%= cty.areaKM %>"><br>
+    <br><br>
+
+    <label>Country code</label>
+    <input type="text" name="course" value= "<%= cty.co_code %>"><br>
+    <label>Country Name</label>
+    <input type="text" name="course" value= "<%= cty.co_name %>"><br>
+     
+   
+    
+    <% }) %>
+
+
+    <br/>
+    <a href="/">Home</a>
+    </form>
+    </body>

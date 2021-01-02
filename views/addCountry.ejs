@@ -1,0 +1,81 @@
+<body>
+  <h1>Add Country</h1>
+
+
+  <div id="codeErr" style="display:none">
+    Error: <a id="name"> </a> already exist
+  </div>
+
+
+  <div id="codeErr2" style="display:none">
+    <p>Country code must be 3 characters</p>
+    <p>Country name must be atleast 3 characters</p>
+  </div>
+
+  <br><br>
+  <form action="/addCountry" method="POST">
+
+    <label>Country code</label>
+    <input type="text" id="co_Code" name="co_code"><br>
+    <label>Country Name</label>
+    <input type="text" id="co_Name" name="co_name"><br>
+    <label>Country Details</label>
+    <textarea type="text" name="co_details" rows="5" cols="55"></textarea><br>
+    <input type="submit" value="add" onclick="myFunction() ">
+  </form>
+</body>
+<a href="/">Home</a>
+
+
+
+
+<script>
+  //my variables to display err message
+  var x = document.getElementById("codeErr2");
+  var y = document.getElementById("codeErr");
+
+  var coCode = document.getElementById("co_Code");
+  var coName = document.getElementById("co_Name");
+
+
+
+  function myFunction() {
+    //console.log( document.getElementById("co_Code"));
+
+    //first I get the id: name to equal the value I inputed for co_code
+    document.getElementById("name").innerHTML = coCode.value;
+
+
+    // console.log(coCode.value.)
+
+    //if the value inputed in co_code/co_name is less the 3 & the input in co_code > 3
+    //unhide the error message with id: codeError 2
+    if (coCode.value.length <= 2 || coCode.value.length >= 4 || coName.value.length <= 2) {
+      reveal(x);
+      hide(y);
+
+    }
+
+    //reason for else - can't determine suitable else if statement
+    //if there isnt any prob with the input, the error with id: codeErr will still pop up but the pg will be redirected to country pg 
+    //if there is an error then pg will not b redirected and error message will show
+    else {
+      reveal(y);
+      hide(x);
+    }
+
+  }
+
+  //reveals the context in div element
+  function reveal(m) {
+    if (m.style.display == "none") {
+      m.style.display = "block";
+    }
+  }
+
+  //hides the context
+  function hide(m) {
+    m.style.display = "none";
+  }
+
+</script>

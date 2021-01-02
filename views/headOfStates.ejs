@@ -1,0 +1,29 @@
+<style>
+    table, th, td {
+      border: 1px solid black;
+    }
+    </style>
+  
+  <h1>Head Of State</h1>
+  <br>
+  <a href="/addHeadOfState"><button>Add Head of State</button></a>
+  <br>
+  
+  <table>
+    <tr>
+      <th>Country Code</th>
+      <th>Head Of State</th>
+    <% presidents.forEach((pres)=> {%>
+    </tr>
+
+      <td><%= pres._id %></td>
+      <td><%= pres.headOfState %></td>
+
+      
+
+    <tr>
+    <% }) %>
+  
+    </tr>
+  </table>
+  <a href="/">Home</a>

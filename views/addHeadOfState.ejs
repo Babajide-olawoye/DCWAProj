@@ -1,0 +1,73 @@
+<body>
+  <h1>Add Head of State</h1>
+
+<!--Message is hidden for now -->
+  <div id="codeErr" style="display:none">
+    Connot add Head of State to <a id="name"> </a> as this Country is not in MySQL database, an error message
+  </div>
+
+<!--Message is hidden for now -->
+  <div id="codeErr2" style="display:none">
+    <p>Country code must be 3 characters</p>
+    <p>Head of State must be atleast 3 characters</p>
+  </div>
+
+  
+  <br><br>
+  <form action="/addHeadOfState" method="POST">
+
+    <label>Country code</label>
+    <input type="text" id="co_Code" name="co_code"><br>
+    <label>Head of State</label>
+    <input type="text" id="co_Name" name="pres"><br>
+
+
+    <input type="submit" value="add" onclick="myFunction() ">
+  </form>
+</body>
+<a href="/">Home</a>
+
+
+
+
+<script>
+
+  var x = document.getElementById("codeErr2");
+  var y = document.getElementById("codeErr");
+
+  var coCode = document.getElementById("co_Code");
+  var coName = document.getElementById("co_Name");
+
+
+
+  function myFunction() {
+
+
+    document.getElementById("name").innerHTML = coCode.value;
+
+    if (coCode.value.length <= 2 || coCode.value.length >= 4 || coName.value.length <= 2) {
+      reveal(x);
+      unreveal(y);
+
+    }
+
+    //same idea as the one in addCountry
+    else {
+      reveal(y);
+      unreveal(x);
+    }
+
+  }
+
+  function reveal(m) {
+    if (m.style.display == "none") {
+      code = coCode;
+      m.style.display = "block";
+    }
+  }
+
+  function unreveal(m) {
+    m.style.display = "none";
+  }
+
+</script>
